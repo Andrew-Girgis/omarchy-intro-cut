@@ -14,14 +14,22 @@ image_extensions=(jpg jpeg png bmp webp)
 video_extensions=(mp4 m4v mov webm mkv avi)
 max_intros=200
 
-# Never replaces a regular file: that is someone's own copy of the script.
+# Only replaces this plugin's own links or broken ones: anything else is someone's own script.
 link_mpv_script() {
   local source="$plugin_dir/mpv/intro-cut.lua"
   local target="$mpv_scripts/intro-cut.lua"
 
   command -v mpv >/dev/null 2>&1 || { echo "no-mpv"; return; }
   if [[ -L $target ]]; then
-    [[ $(readlink "$target") == "$source" ]] || ln -sfn "$source" "$target"
+    local current
+    current=$(readlink "$target")
+    if [[ $current != "$source" ]]; then
+      if [[ -e $target && $current != */girgie.intro-cut/mpv/intro-cut.lua ]]; then
+        echo "conflict"
+        return
+      fi
+      ln -sfn "$source" "$target"
+    fi
   elif [[ -e $target ]]; then
     echo "conflict"
     return

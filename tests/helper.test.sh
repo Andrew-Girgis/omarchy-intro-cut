@@ -30,6 +30,13 @@ if command -v mpv >/dev/null; then
   echo "-- mine" >"$home/.config/mpv/scripts/intro-cut.lua"
   [[ $(HOME=$home "$helper" status | jq -r .mpv) == conflict ]] || fail "conflict"
   [[ $(cat "$home/.config/mpv/scripts/intro-cut.lua") == "-- mine" ]] || fail "overwrote user script"
+  # Nor is a link to someone else's script; a broken link is repaired.
+  mv "$home/.config/mpv/scripts/intro-cut.lua" "$home/mine.lua"
+  ln -s "$home/mine.lua" "$home/.config/mpv/scripts/intro-cut.lua"
+  [[ $(HOME=$home "$helper" status | jq -r .mpv) == conflict ]] || fail "conflict on foreign link"
+  [[ $(readlink "$home/.config/mpv/scripts/intro-cut.lua") == "$home/mine.lua" ]] || fail "repointed user link"
+  rm "$home/mine.lua"
+  [[ $(HOME=$home "$helper" status | jq -r .mpv) == linked ]] || fail "broken link not repaired"
 fi
 
 # Path-shaped theme names never become directories to scan.
