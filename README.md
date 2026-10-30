@@ -7,8 +7,8 @@ on its wallpaper. Plugin ID: `girgie.intro-cut`.
 ## Requirements
 
 - Omarchy 4.5 or newer (background intros arrived in 4.5).
-- `mpv`, `ffmpeg` and `jq` (`sudo pacman -S --needed mpv ffmpeg jq`). `owe`, which plays
-  the intros, ships with Omarchy.
+- `mpv`, `ffmpeg` and `jq`, all part of Omarchy's base install, and `owe`, which plays the
+  intros and also ships with Omarchy.
 
 ## Install
 
