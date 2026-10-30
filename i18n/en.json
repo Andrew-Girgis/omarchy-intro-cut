@@ -1,0 +1,23 @@
+{
+  "title": "Intro Cut",
+  "bar.tooltip": "Background intros for this theme",
+  "refresh": "Refresh",
+  "close": "Close",
+  "openMpv": "Open mpv",
+  "howto": "Drop a video into mpv. Press l to mark the start, l again to mark the end, then Shift+X to export.",
+  "exportTo": "Exports join the %1 backgrounds and play when you switch to this theme or log in.",
+  "noTheme": "No current theme found. Exports go to ~/Pictures/Intros.",
+  "mpv.conflict": "~/.config/mpv/scripts/intro-cut.lua is a regular file, so the plugin's copy is not linked. Remove it to let the plugin manage it.",
+  "mpv.missing": "mpv is not installed.",
+  "introsOff": "Background intros are turned off. Enable them with: omarchy theme bg intro enable",
+  "loading": "Loading…",
+  "error": "Could not read the theme's intros.",
+  "empty": "This theme has no backgrounds with an intro yet.",
+  "intros.count": {"one": "%1 intro", "other": "%1 intros"},
+  "seconds": "%1 s",
+  "badge.current": "Current",
+  "badge.yours": "Yours",
+  "preview": "Preview",
+  "use": "Use",
+  "footer.keys": "R refresh · M open mpv · Esc close"
+}

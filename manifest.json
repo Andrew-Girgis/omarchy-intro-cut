@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "girgie.intro-cut",
+  "name": "Intro Cut",
+  "version": "1.0.0",
+  "author": "girgie",
+  "description": "Cut background intros from any video in mpv and preview the current theme's intros",
+  "kinds": ["bar-widget"],
+  "entryPoints": {"barWidget": "IntroCut.qml"},
+  "barWidget": {
+    "displayName": "Intro Cut",
+    "category": "Appearance",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
